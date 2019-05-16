@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let user = mongoose.model("User",{
+let user = mongoose.model("users",{
     userName: {
         type: String,
         required: true,
@@ -21,7 +21,7 @@ let user = mongoose.model("User",{
         required: true
     },
     points: {
-        type: Int16Array
+        type: Number
     },
     type: {
         type: String,
@@ -34,8 +34,9 @@ let user = mongoose.model("User",{
     },
     status: {
         type: Boolean,
-        required: true,
-        default: true
+        enum: ["true", "false"],
+        default: "true"
+
     }
 });
 
