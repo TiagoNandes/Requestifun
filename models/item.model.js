@@ -21,6 +21,9 @@ let item = mongoose.model("Item",{
     },
     subCategory: {
         type: String
+    },
+    urlImage: {
+        type: String
     }
 });
 
