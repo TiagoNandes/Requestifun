@@ -22,15 +22,16 @@ function readItemsId(req, res) {
 }
 
 function saveItemshops(req,res){
-    let newWorkshop = workshops.workshop({
+    let newItem = items.item({
     
-    nameItem: req.body.nameItem,
+    name: req.body.name,
     state:req.body.state,
     model:req.body.model,
-    image:req.body.image,
-    category:req.body.idTeacher,
+    urlImage:req.body.urlImage,
+    category:req.body.Category,
+    subCategory:req.body.subCategory,
     })
-    newWorkshop.save((err)=> {
+    newItem.save((err)=> {
         if (err) {
             res.send(err);
         } else {
@@ -38,3 +39,10 @@ function saveItemshops(req,res){
         }
     })
 }
+
+module.exports = {
+    readItems: readItems,
+    readItemsId: readItemsId,
+    saveItems: saveItems
+
+};

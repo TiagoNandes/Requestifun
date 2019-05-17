@@ -23,7 +23,8 @@ let item = mongoose.model("Item",{
         type: String
     },
     urlImage: {
-        type: String
+        type: String,
+        default: "http://www.central3.com.br/wp-content/themes/c3/img/default-placeholder.png"
     }
 });
 

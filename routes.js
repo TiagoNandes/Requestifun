@@ -2,6 +2,7 @@
 const router= require('express').Router();
 const controllerUsers = require('./controllers/users.controller.js');
 const controllerAuth = require('./controllers/auth.controller.js');
+const controllerItems = require('./controllers/item.controller.js');
 const jwt = require('./assets/scripts/jwt.js');
 
 router.get('/', function(req,res){
@@ -26,6 +27,11 @@ router.put('/users/:id', controllerUsers.updateUsers);
 //router.put('/users/delete/:id', (req,res) => jwt.validateToken(req, res, controllerUsers.deleteLogicUsers));
 router.put('/users/delete/:id',  controllerUsers.deleteLogicUsers);
 router.put('/users/activate/:id',  controllerUsers.reactivateLogicUsers);
+
+//Rotas para items
+router.get('/items/', controllerItems.readItems);
+router.get('/items/:id', controllerItems.readItemsId);
+router.post('/items/', controllerItems.saveItems);
 
 //exportar router
 module.exports = router;
