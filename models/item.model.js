@@ -3,12 +3,16 @@ const mongoose = require('mongoose');
 let item = mongoose.model("Item",{
     name: {
         type: String,
+        required: true
+    },
+    code: {
+        type: String,
         required: true,
         unique: true
     },
     state: {
         type: String,
-        require: true,
+        required: true,
         enum: ["Available", "Not available"]
     },
     model: {

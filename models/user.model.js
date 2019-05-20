@@ -26,7 +26,8 @@ let user = mongoose.model("users",{
     type: {
         type: String,
         enum: ["admin", "regularUser"],
-        required: true
+        required: true,
+        default: "regularUser"
     },
     lastlogin: {
         type: String,

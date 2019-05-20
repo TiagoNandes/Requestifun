@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
-let requisition = mongoose.model("Requisition",{
+let requisition = mongoose.model("Requisition", {
+    requisitionDate: {
+        type: Date,
+        required: true
+    },
     returnDate: {
         type: Date,
         required: true
@@ -20,5 +24,5 @@ let requisition = mongoose.model("Requisition",{
 });
 
 module.exports = {
-    requisition : requisition,
+    requisition: requisition,
 }
