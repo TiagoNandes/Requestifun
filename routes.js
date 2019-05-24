@@ -3,6 +3,7 @@ const router = require('express').Router();
 const controllerUsers = require('./controllers/users.controller.js');
 const controllerAuth = require('./controllers/auth.controller.js');
 const controllerItems = require('./controllers/item.controller.js');
+const controllerRequisitions = require('./controllers/requisitions.controller.js');
 const jwt = require('./assets/scripts/jwt.js');
 
 router.get('/', function(req, res) {
@@ -38,6 +39,17 @@ router.put('/items/:id', controllerItems.updateItems);
 //router.put('/items/delete/:id', (req,res) => jwt.validateToken(req, res, controllerItems.deleteLogicItems));
 router.put('/items/delete/:id', controllerItems.deleteLogicItems);
 router.put('/items/activate/:id', controllerItems.reactivateLogicItems);
+
+//Rotas para Requisitions
+router.get('/requisitions/', controllerRequisitions.readRequisitions);
+router.get('/requisitions/:id', controllerRequisitions.readRequisitionsId);
+router.post('/requisitions/', controllerRequisitions.saveRequisitions);
+router.put('/requisitions/:id', controllerRequisitions.updateRequisitions);
+//router.delete('/requisitions', (req,res) => jwt.validateToken(req, res, controllerRequisitions.deleteFisicRequisitions));
+//router.delete('/requisitions/:id', (req,res) => jwt.validateToken(req, res, controllerRequisitions.deleteFisicRequisitionsId));
+//router.put('/requisitions/delete/:id', (req,res) => jwt.validateToken(req, res, controllerRequisitions.deleteLogicRequisitions));
+router.put('/requisitions/delete/:id', controllerRequisitions.deleteLogicRequisitions);
+
 
 //exportar router
 module.exports = router;
