@@ -9,18 +9,18 @@ let requisition = mongoose.model("Requisition", {
         type: String, //deve passar a Date
         required: true
     },
-    itemCode: {
-        type: Number,
-        required: true,
-        unique: true
-    },
-    amount: {
-        type: Number,
-        required: true
-    },
-    info: {
-        type: String
-    },
+    item: [{
+        code: {
+            type: Number,
+            required: true,
+            unique: true
+        },
+        itemState: {
+            type: String,
+            required: false,
+            enum: ["excelente", "bom", "mau", "péssimo"],
+        },
+    }],
     state: {
         type: String,
         required: false,
