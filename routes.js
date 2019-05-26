@@ -50,6 +50,16 @@ router.put('/requisitions/:id', controllerRequisitions.updateRequisitions);
 //router.put('/requisitions/delete/:id', (req,res) => jwt.validateToken(req, res, controllerRequisitions.deleteLogicRequisitions));
 router.put('/requisitions/delete/:id', controllerRequisitions.deleteLogicRequisitions);
 
+//Rotas para classrooms
+router.get('/classrooms/', controllerClassrooms.readClassrooms);
+router.get('/classrooms/:id', controllerClassrooms.readClassroomsId);
+router.post('/classrooms/', controllerClassrooms.saveClassrooms);
+router.put('/classrooms/:id', controllerClassrooms.updateClassrooms);
+//router.delete('/classrooms', (req,res) => jwt.validateToken(req, res, controllerClassrooms.deleteFisicClassrooms));
+//router.delete('/classrooms/:id', (req,res) => jwt.validateToken(req, res, controllerClassrooms.deleteFisicClassroomsId));
+//router.put('/classrooms/delete/:id', (req,res) => jwt.validateToken(req, res, controllerClassrooms.deleteLogicClassrooms));
+router.put('/classrooms/delete/:id', controllerClassrooms.deleteLogicClassrooms);
+
 
 //exportar router
 module.exports = router;
