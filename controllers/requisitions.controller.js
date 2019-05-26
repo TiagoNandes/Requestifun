@@ -22,14 +22,29 @@ function readRequisitionsId(req, res) {
 }
 
 function saveRequisitions(req, res) {
+
+    class Item {
+        constructor(code, itemState) {
+            this.code = code,
+                this.itemState = itemState
+        }
+    }
+
     let newRequisition = requisitions.requisition({
 
         requisitionDate: req.body.requisitionDate,
         returnDate: req.body.returnDate,
-        itemCode: req.body.itemCode,
-        amount: req.body.amount,
-        info: req.body.info,
+        state: req.body.state,
+
     })
+
+    let newItem = new Item(req.body.item.code, req.body.item.itemState);
+
+    newRequisition["item"].push(newItem);
+
+    console.log("newItem: " + newItem.code)
+    console.log("newrequisition: " + newRequisition)
+
     newRequisition.save((err) => {
         if (err) {
             res.send(err);
