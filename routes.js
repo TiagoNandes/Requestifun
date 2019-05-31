@@ -59,6 +59,7 @@ router.put('/classrooms/:id', controllerClassrooms.updateClassrooms);
 //router.delete('/classrooms/:id', (req,res) => jwt.validateToken(req, res, controllerClassrooms.deleteFisicClassroomsId));
 //router.put('/classrooms/delete/:id', (req,res) => jwt.validateToken(req, res, controllerClassrooms.deleteLogicClassrooms));
 router.put('/classrooms/delete/:id', controllerClassrooms.deleteLogicClassrooms);
+router.put('/classrooms/activate/:id', controllerClassrooms.reactivateLogicClassrooms);
 
 
 //exportar router
