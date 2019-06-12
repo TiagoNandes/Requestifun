@@ -29,6 +29,8 @@ router.put('/users/:id', controllerUsers.updateUsers);
 router.put('/users/delete/:id', controllerUsers.deleteLogicUsers);
 router.put('/users/activate/:id', controllerUsers.reactivateLogicUsers);
 
+router.get('/rankings/', controllerUsers.readRankings);
+
 //Rotas para items
 router.get('/items/', controllerItems.readItems);
 router.get('/items/:id', controllerItems.readItemsId);
