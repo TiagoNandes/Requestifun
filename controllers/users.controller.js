@@ -92,6 +92,30 @@ function updateUsers(req, res) {
     })
 }
 
+function readRankings(req, res) {
+    let ranking = [];
+    let name = "";
+    let points = 0;
+    users.user.find({}, (err, user) => {
+        if (err) {
+            res.send(err);
+        } else {
+            for (let item in user) {
+
+                name = user[item].userName;
+                points = user[item].points;
+                console.log("points: " + user[item].points);
+                console.log("user: " + user)
+
+                ranking.push({ "name": name, "points": points });
+            }
+            console.log("ranking: " + ranking)
+            res.send(ranking);
+
+        }
+    })
+}
+
 function deleteFisicUsers(req, res) {
     users.user.deleteMany({}, (err) => {
         if (err) res.send(err)
